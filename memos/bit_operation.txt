@@ -1,0 +1,24 @@
+
+///  ビット全探索の例  ///
+
+int N, W;
+int A[20];
+
+void bit_operation() {
+  cin >> N >> W;
+  int count = 0;
+
+  for (int i = 0; i < N; i++) cin >> A[i];
+
+  for (int bit = 0; bit < (1 << N); bit++) {
+    int total = 0;
+    for (int i = 0; i < N; i++) {
+      if (bit & (1 << i)) {
+        total += A[i];
+      }
+    }
+    if (total == W) count++;
+  }
+
+  cout << count;
+}

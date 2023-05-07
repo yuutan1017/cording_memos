@@ -1,0 +1,20 @@
+
+区間 [a,b] と [c,d]の交差は実は簡単にかけて
+
+[max(a,c),min(b,d)] (左端が max(a,c)で右端が min(b,d))になる。面倒な場合分けが要らない！！！
+ただし max(a,c)>min(b,d)の場合は「交差しない」ということになる。
+
+--------------------------------------
+
+void solve(){
+  cin >> N >> M;
+
+  int left = 1, right = N;
+  rep(i, 0, M){
+    int l, r; cin >> l >> r;
+    left = max(left, l);
+    right = min(right, r);
+  }
+
+  cout << max(right - left + 1, 0) << endl;
+}

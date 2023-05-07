@@ -1,0 +1,12 @@
+
+
+template<typename T> T binary_search(T key, vector<T> vec){
+  T left = 0, right = vec.size() - 1;
+  while(left <= right){
+    T mid = left + (right - left) / 2;
+    if(vec[mid] > key) right = mid - 1;
+    if(vec[mid] == key) return mid;
+    if(vec[mid] < key) left = mid + 1;
+  }
+  return -1;
+}

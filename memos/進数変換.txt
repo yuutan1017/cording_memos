@@ -1,0 +1,50 @@
+
+// 10進数　→　2進数
+
+void solve() 
+{
+  //n : 変換する10進数 k : 桁数
+  int n, k; cin >> n >> k;
+
+  if(k < 8)
+  {
+    cout << "Error: Less digits";
+    return;
+  }
+  else
+  {
+    string ans;
+
+    for (int i = k - 1; i >= 0; i--)
+    {
+      int k = (1 << i);
+      string a = to_string((n / k) % 2);
+      ans.append(a);
+    }
+
+    cout << ans << endl;
+  }
+}
+
+// 2進数　→　10進数
+
+void solve() 
+{
+  //2進数を受け取る
+  string s; cin >> s;
+  int digits = s.size();
+
+  int ans = 0;
+
+  for (int i = 0; i < digits; i++)
+  {
+    //128 64 32 16 8 4 2 1　てなる
+    int k = (1 << (digits - 1 - i));
+    //文字コードを使ったテクニック
+    int j = s[i] - '0';
+
+    ans += (k * j);
+  }
+
+  cout << ans << endl;
+}

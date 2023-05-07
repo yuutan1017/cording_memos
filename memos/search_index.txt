@@ -1,0 +1,17 @@
+
+
+int search_index(vector<int> vec, int idx)
+{
+  vector<int>::iterator itr;
+
+  itr = find(vec.begin(), vec.end(), idx);
+
+  if(itr == vec.end())
+  cout << "Search Failed" << endl;
+
+  const int result = distance(vec.begin(), itr);
+
+  return result;
+}
+
+

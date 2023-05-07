@@ -1,0 +1,18 @@
+
+
+//最大公約数
+ll gcd(ll a, ll b) { return a ? gcd(b % a, a) : b; }
+
+
+//最小公倍数
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+
+
+//
+ll countMultiple(ll R, ll div, ll mod) { // [1,R] and x % div == mod
+	if (R == 0) return 0;
+ 
+	ll res = R / div;
+	if (mod <= R % div and 0 < mod) res++;
+	return res;
+}
