@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+
+#include "fpdfview.h"
+#include "fpdf_doc.h"
+#include "fpdf_edit.h"
+
+#pragma warning(disable : 4996)
+#define ARR_SIZE(array) (sizeof(array) / sizeof(array[0]))
+
+
+void extractXref(string readText, char* data) 
+{
+	if (readText == "xref")
+	{
+
+	}
+}
+
+void getPDFFileData(const char* path, string* data)
+{
+	try 
+	{
+		FILE* fp;
+		char* buf = (char*)malloc(1024);
+
+		if ((fp = fopen(path, "rb+")) != NULL)
+		{
+			int idx = 0;
+			while (fgets(buf, ARR_SIZE(buf), fp) != 0)
+			{	
+				string readText = buf;
+				string* ptrReadText = (string*) & buf;
+
+				data[idx] = readText;
+				idx++;
+			}
+			free(buf);
+			fclose(fp);
+		}
+		else
+		{
+			printf("Error: File Open Error");
+			return;
+		}
+	}
+	catch (...)
+	{
+		perror("Program Error");
+		return;
+	}
+}
+
+
+int main(int argc, char* argv[])
+{
+	if (argc > 2) return -1;
+	else 
+	{
+		const char* path = "C:\\Users\\nyou0\\dev\\pdfFile\\two_page_sample.pdf";
+		string data[1024];
+		getPDFFileData(path, data);
+
+		for (int i = 0; i < ARR_SIZE(data); i++) cout << data[i];
+
+
+	}
+	return 0;
+}
