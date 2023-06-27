@@ -10,8 +10,8 @@ void exe(){
   //----------------計測開始-------------------------
 
 
-  vector<int> array = random_vector(1, 10000);
-  vector<int> result = insertion_sort(array);
+  vector<long long> array = random_vector(1, 1000000000000);
+  vector<long long> result = insertion_sort(array);
 
   for (const auto& i : result) cout << i << ' ';
   

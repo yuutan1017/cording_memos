@@ -3,15 +3,17 @@
 
 using namespace std;
 
+typedef long long ll;
+
 
 random_device seed;
 mt19937 mt(seed());
 
-vector<int> random_vector(int min, int max)
+vector<long long> random_vector(long long min, long long max)
 {
-  vector<int> arg;
+  vector<long long> arg;
   uniform_int_distribution<> dist(min, max);
-  int i = 0;
+  ll i = 0;
 
   while (i < 10)
   {

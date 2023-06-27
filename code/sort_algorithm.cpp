@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
 
 //Bubble Sort
 
@@ -106,10 +107,10 @@ vector<int> gnome_sort(vector<int> array){
 
 // Insertion Sort
 
-vector<int> insertion_sort(vector<int> array){
-  for(int i = 1; i < array.size(); i++){
-    int tmp = array[i];
-    int j = i - 1;
+vector<ll> insertion_sort(vector<ll> array){
+  for(ll i = 1; i < array.size(); i++){
+    ll tmp = array[i];
+    ll j = i - 1;
     while(j >= 0 && array[j] > tmp){
       array[j + 1] = array[j];
       j -= 1;
