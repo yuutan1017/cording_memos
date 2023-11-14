@@ -1,5 +1,6 @@
 
 
+
 bool isPalindrome(string str)
 {
   int low = 0, high = str.length() - 1;

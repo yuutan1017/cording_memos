@@ -1,0 +1,26 @@
+
+
+void solve() 
+{
+  const int Init_n = 30000;
+  int Q, X[10010], N = Init_n;
+  bool Deleted[Init_n];
+
+  cin >> Q;
+  for (int i = 1; i <= Q; i++) cin >> X[i];
+  for (int i = 2; i <= N; i++) Deleted[i] = false;
+
+  for (int i = 2; i * i <= N; i++)
+  {
+    if(Deleted[i] == true) continue;
+    for (int j = i * 2; j <= N; j += i) Deleted[j] = true;
+  }
+
+  for (int i = 1; i <= Q; i++)
+  {
+    if (Deleted[i] == false)
+    {
+      cout << i << endl;
+    }
+  }
+}
